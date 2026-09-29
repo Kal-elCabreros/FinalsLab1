@@ -43,6 +43,12 @@
         </div>
       </div>
 
+      <label class="field-label" for="bio">Short Bio</label>
+      <textarea
+        id="bio"
+        placeholder="Write a short bio about yourself"
+      ></textarea>
+
       <p class="field-label">Favorite Color</p>
       <form id="fColor">
         <label>
@@ -98,6 +104,7 @@
       <label class="info-line" id="displayPhone">Phone Number: </label>
       <label class="info-line" id="displayCourse">Course: </label>
       <label class="info-line" id="displayYear">Year Level: </label>
+      <label class="info-line" id="displayBio">Short Bio: </label>
       <label class="info-line" id="displayColor">Favorite Color: </label>
       <label class="info-line" id="displayHobbies">Hobbies: </label>
     </div>
@@ -111,6 +118,7 @@
         let num = document.getElementById("phone").value;
         let program = document.getElementById("course").value;
         let level = document.getElementById("yearLevel").value;
+        let bio = document.getElementById("bio").value;
         let color = document.querySelector('input[name = "color"]:checked');
         let hobbies = " ";
 
@@ -126,6 +134,7 @@
         document.getElementById("displayCourse").textContent =
           `Course: ${program}`;
         document.getElementById("displayYear").textContent = `Year: ${level}`;
+        document.getElementById("displayBio").textContent = `Short Bio: ${bio}`;
 
         if (color) {
           document.getElementById("displayColor").textContent =
@@ -151,9 +160,13 @@
         document.getElementById("displayHobbies").textContent =
           `Hobbies: ${hobbies}`;
 
-        // third selection method: getElementsByTagName
         let btn = document.getElementsByTagName("button")[0];
         btn.textContent = "Info Shown!";
+
+        let box = document.getElementById("your-info");
+        box.style.backgroundColor = "#eaf2ff";
+        box.classList.add("done");
+        btn.setAttribute("title", "Info already shown");
       }
     </script>
   </body>
